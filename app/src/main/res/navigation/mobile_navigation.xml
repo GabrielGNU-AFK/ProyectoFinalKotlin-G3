@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_monturas">
+    <fragment
+        android:id="@+id/nav_monturas"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.ListaMonturasFragment"
+        android:label="@string/navmonturas"
+        tools:layout="@layout/fragment_lista_monturas" >
+        <action
+            android:id="@+id/action_ListaMonturaFragment_to_DetailMonturaFragmet"
+            app:destination="@+id/nav_detallemontura"
+            app:popUpTo="@id/nav_monturas"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detallemontura"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.DetalleMonturaFragment"
+        android:label="@string/nav_detalleMontura"
+        tools:layout="@layout/fragment_detalle_montura">
+        <argument
+            android:name="productItem"
+            app:argType="pe.edu.idat.tiendamonturas_v01.retrofit.model.Montura" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_orden"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.OrdenFragment"
+        android:label="@string/navorden"
+        tools:layout="@layout/fragment_orden">
+
+        <action
+            android:id="@+id/action_OrdenFragment_to_DetalleOrdenFragment"
+            app:destination="@+id/nav_detalleord"
+            app:popUpTo="@id/nav_orden"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detalleord"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.DetalleOrdenFragment"
+        android:label="@string/nav_detalleordenx"
+        tools:layout="@layout/fragment_detalle_orden">
+        <argument
+            android:name="idOrden"
+            app:argType="pe.edu.idat.tiendamonturas_v01.retrofit.response.ResponseOrden" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_carrito"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.CarritoFragment"
+        android:label="@string/valnavcarrito"
+        tools:layout="@layout/fragment_carrito">
+    <action
+        android:id="@+id/action_DetalleFragment_to_CarritoFragment"
+        app:destination="@+id/nav_carrito"
+
+        />
+        <action
+            android:id="@+id/action_Carrito_to_Pasarella"
+            app:destination="@+id/nav_pasarela"
+
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pasarela"
+        android:name="pe.edu.idat.tiendamonturas_v01.view.fragment.PasarelaFragment"
+        android:label="@string/valNavPasarella"
+        tools:layout="@layout/fragment_pasarela" >
+        <action
+            android:id="@+id/action_pasarela_to_monturas"
+            app:destination="@+id/nav_monturas"
+
+            />
+
+    </fragment>
+
+
+</navigation>
